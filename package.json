@@ -1,0 +1,29 @@
+{
+  "name": "cocotte-message",
+  "description": "コンソール出力",
+  "homepage": "https://github.com/yukik",
+  "keywords": [
+    "cocotte",
+    "console",
+    "message",
+    "logging"
+  ],
+  "author": "Yuki Kurata <yuki.kurata@gmail.com>",
+  "dependencies": {
+    "cocotte-logger": "*"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/yukik/cocotte-message.git"
+  },
+  "main": "message.js",
+  "version": "0.1.1",
+  "scripts": {
+    "test": "node ./test/test.js"
+  },
+  "directories": {
+    "test": "test"
+  },
+  "readmeFilename": "README.md",
+  "license": "MIT"
+}
