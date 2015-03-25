@@ -1,0 +1,2 @@
+# cocotte-message
+console message
