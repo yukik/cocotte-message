@@ -100,6 +100,9 @@ var msg = function msg (message, options) {
 
   // ラベル
   var label = typeof options.label ==='string' ? options.label : level.toUpperCase();
+  if (msg.labelLength) {
+    label = (label + '                    ').substring(0, msg.labelLength);
+  }
 
   // 関数名・オブジェクトのコンストラクタ名など
   var name;
@@ -173,6 +176,13 @@ var msg = function msg (message, options) {
 };
 
 /**
+ * ラベルの長さを固定長にする場合に指定
+ * nullで可変長
+ * @property {Number}
+ */
+msg.labelLength = null;
+
+/**
  * コンソールに表示
  * @method out
  * @param  {String} level
@@ -223,9 +233,9 @@ function out (level, label, name, bench, value, caller) {
   } else {
     // -- 色なし --
     label = '[' + label + ']';
-    name = name ? '(' + name + ') ': ' ';
-    value = value ? ' ' + value + ' ': value;
-    file = file + '(' + line + fname + ')';
+    bench = bench ? bench + ' ' : '';
+    name = name ? '(' + name + ') ': '';
+    file = ' ' + file + '(' + line + fname + ')';
   }
 
   // 表示
@@ -293,6 +303,7 @@ msg.debug = function debug (key) {
     last = dt;
 
     var options = {};
+
     options.label = 'DEBUG:' + key;
     options.caller = debugc;
     options.bench = ms;
